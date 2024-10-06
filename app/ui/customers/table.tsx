@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 import Search from '@/app/ui/search';
-import { CustomersTable, FormattedCustomersTable } from '@/app/lib/definitions';
+import { CustomersTable as CustomersTableType, FormattedCustomersTable } from '@/app/lib/definitions';
 import { fetchFilteredCustomers } from '@/app/lib/data';
 
-export default async function CustomersTable({query}:{query: string}) {
-
-  const customers: FormattedCustomersTable[] = await fetchFilteredCustomers(query)
+export default async function CustomersTableComponent({ query }: { query: string }) {
+  const customers: FormattedCustomersTable[] = await fetchFilteredCustomers(query);
 
   return (
     <div className="w-full">
